@@ -16,7 +16,7 @@ def show_instructions():
     print("When you enter a room, you will be shown an item if you have not collected it yet. You can collect this item by typing 'get [item name]'")
     print("In order to view your inventory and current location, type: 'show status'")
     print("In order to win, you must collect all items from every room BEFORE you encounter Ganondorf. If you encounter Gananondorf before collecting all items, you lose!")
-    print("There are 7 rooms - not including the starting room, that you must collect items from before you reach the 8th room, where Ganondorf is located")
+    print("There are 6 rooms that you must collect items from before you reach the room, where Ganondorf is located! The starting room and the room with Ganondorf do not have items in them!")
     print("At any point you can show the instructions again by typing 'show instructions'")
     print("Type 'quit' to exit the game")
     print("Good luck!")
