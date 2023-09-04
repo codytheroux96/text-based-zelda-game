@@ -26,13 +26,13 @@ def main():
     global current_room  # Declare current_room as a global variable
 
     rooms = { # Create a dictionary of rooms, their available exits, and the items in each room
-        'Hyrule Field': {'North': 'Temple of Time', 'South': 'Lost Woods', 'East': 'Goron City', 'West': 'Gerudo Desert', 'item':   None}, #Starting room
-        'Temple of Time': {'South': 'Hyrule Field', 'item': 'Master Sword'},
-        'Lake Hylia': {'North': 'Zoras Domain', 'item': 'Hookshot'},
-        'Goron City': {'West': 'Hyrule Field', 'South': 'Zoras Domain', 'item': 'Hylian Shield'},
-        'Gerudo Desert': {'East': 'Hyrule Field', 'South': 'Hyrule Castle', 'item': 'Silver Gauntlets'},
-        'Lost Woods': {'North': 'Hyrule Field', 'East': 'Zoras Domain', 'West': 'Hyrule Castle', 'item': 'Fairy Bow'},
-        'Zoras Domain': {'North': 'Goron City', 'West': 'Lost Woods', 'South': 'Lake Hylia', 'item': 'Magic'},
+        'Hyrule Field': {'North': 'Temple of Time', 'South': 'Lost Woods', 'East': 'Zoras Domain', 'West': 'Gerudo Desert', 'item': None}, #Starting room
+        'Temple of Time': {'South': 'Hyrule Field', 'East': 'Hyrule Castle', 'item': 'Master Sword'},
+        'Lake Hylia': {'North': 'Zoras Domain', 'West': 'Lost Woods', 'item': 'Hookshot'},
+        'Goron City': {'South': 'Zoras Domain', 'item': 'Hylian Shield'},
+        'Gerudo Desert': {'East': 'Hyrule Field', 'item': 'Silver Gauntlets'},
+        'Lost Woods': {'North': 'Hyrule Field', 'East': 'Lake Hylia', 'item': 'Fairy Bow'},
+        'Zoras Domain': {'North': 'Goron City', 'West': 'Hyrule Field', 'South': 'Lake Hylia', 'item': 'Magic'},
         'Hyrule Castle': {'item': None}, # Ganondorf (the villain) is in this room
     }
 
@@ -108,7 +108,7 @@ def main():
                 add_to_inventory(item_name)
             else:
                 print("Invalid item name, try again!") # If the item name is invalid, print that the item name is invalid
-        else: 
+        else: # Check if the user enters a valid command
             if (
                 move != 'show status'
                 and move != 'show instructions'
