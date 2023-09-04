@@ -61,7 +61,6 @@ def main():
 
 
     while True: # While loop to keep the game running until the user enters 'quit'
-        #show_status()
 
         move = input("Enter your move: ").lower()  # Convert input to lowercase for consistency
         
@@ -109,7 +108,7 @@ def main():
                 add_to_inventory(item_name)
             else:
                 print("Invalid item name, try again!") # If the item name is invalid, print that the item name is invalid
-        else: # Check if the user enters a valid command
+        else: 
             if (
                 move != 'show status'
                 and move != 'show instructions'
