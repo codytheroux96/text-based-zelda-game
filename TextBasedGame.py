@@ -5,7 +5,8 @@
 #TODO figure out how to end the game if the user gets to hyrule castle !!!DONE!!!!
 #TODO fix duplication of status being shown when the user enters show status !!!!DONE!!!!
 #TODO figure out how to get rid of the collected items message when the user enters hyrule castle !!!!DONE!!!!
-#TODO fix invalid command message showing up when user enters new room
+#TODO fix invalid command message showing up when user enters new room !!!!DONE!!!!
+#TODO figure out how to give the user a message if they enter an item that is valid but not in the room they are in
 #TODO formatting the output messages to the user
 #TODO need to add view map functionality so the user can see the rooms they can access from their current location
 
@@ -104,10 +105,22 @@ def main():
         
         if move.startswith('get '):  # Check if the input starts with 'get '
             item_name = move[4:].lower()  # Extract the item name from the input
-            add_to_inventory(item_name)
+            if item_name in ["magic", "master sword", "hookshot", "hylian shield", "silver gauntlets", "fairy bow", "iron boots"]: # Check if the item name is valid
+                add_to_inventory(item_name)
+            else:
+                print("Invalid item name, try again!") # If the item name is invalid, print that the item name is invalid
+        else: # Check if the user enters a valid command
+            if (
+                move != 'show status'
+                and move != 'show instructions'
+                and move != 'go north'
+                and move != 'go south'
+                and move != 'go east'
+                and move != 'go west'
+                and move != 'quit'
+            ): # If the user enters an invalid command, print that the command is invalid
+                print("Invalid command, try again!")
         
-        #else:
-            #print("Invalid command, please try again!")
                 
         if current_room == 'Hyrule Castle': # If the user enters the room with Ganondorf, check if they have all items
             if len(inventory) == len(rooms) - 2: # Check to see if the user has all of the items
