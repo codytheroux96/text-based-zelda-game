@@ -6,12 +6,13 @@
 #TODO fix duplication of status being shown when the user enters show status !!!!DONE!!!!
 #TODO figure out how to get rid of the collected items message when the user enters hyrule castle !!!!DONE!!!!
 #TODO fix invalid command message showing up when user enters new room !!!!DONE!!!!
-#TODO figure out how to give the user a message if they enter an item that is valid but not in the room they are in
+#TODO figure out how to give the user a message if they enter an item that is valid but not in the room they are in !!!!DONE!!!!
 #TODO formatting the output messages to the user
 #TODO need to add view map functionality so the user can see the rooms they can access from their current location
 
 def show_instructions():
     print("Text-Based Zelda Adventure Game")
+    print("The evil Ganondorf has taken over Hyrule and it is up to Link, the Hero of Time, to save the kingdom!")
     print("In order to move Link, you must enter the commands: 'go north', 'go south', 'go east', 'go west', in order to navigate the map")
     print("The room you will start in is Hyrule Field")
     print("When you enter a room, you will be shown an item if you have not collected it yet. You can collect this item by typing 'get [item name]'")
@@ -50,13 +51,20 @@ def main():
     show_status() # Call the show_status function
 
     def add_to_inventory(item_name): # Function to add an item to the user's inventory
-        if item_name in inventory: # Check if the item is already in the user's inventory
-            print("You have already collected this item!") # If the item is already in the user's inventory, print that they have already collected the item
+        if item_name in inventory: # Check if the user has already collected the item
+            print("You have already collected this item!")
             show_status()
-        elif 'item' in rooms[current_room] and rooms[current_room]['item'] is not None and rooms[current_room]['item'].lower() == item_name: # Check if the item is in the room
-            inventory.append(item_name) # If the item is in the room, add it to the user's inventory
-            print(f"You have now collected the {item_name} in this room! Enter a new command!")
-            rooms[current_room]['item'] = None
+        elif 'item' in rooms[current_room] and rooms[current_room]['item'] is not None: # Check if there is an item in the room
+            if item_name.lower() == rooms[current_room]['item'].lower():  # Compare item names
+                inventory.append(item_name)
+                print(f"You have now collected the {item_name} in this room! Enter a new command!")
+                rooms[current_room]['item'] = None
+                show_status()
+            else: # If the item name is valid but is not the item that belongs in that room, print that the item is not in the room
+                print(f"That item is not in the {current_room}! Enter another command!")
+                show_status()
+        else:
+            print("There are no items to collect in this room.")
             show_status()
 
 
