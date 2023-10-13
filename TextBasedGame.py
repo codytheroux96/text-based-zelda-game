@@ -1,16 +1,7 @@
 # Cody Theroux
-#TODO figure out the problem with navigating the rooms !!!!DONE!!!!
-#TODO figure out how to tell the user "invalid command" if they dont enter a valid command !!!!DONE!!!!
-#TODO figure out how to properly tell the user they already picked up an item if they type in get that item again !!!!DONE!!!!
-#TODO figure out how to end the game if the user gets to hyrule castle !!!DONE!!!!
-#TODO fix duplication of status being shown when the user enters show status !!!!DONE!!!!
-#TODO figure out how to get rid of the collected items message when the user enters hyrule castle !!!!DONE!!!!
-#TODO fix invalid command message showing up when user enters new room !!!!DONE!!!!
-#TODO figure out how to give the user a message if they enter an item that is valid but not in the room they are in !!!!DONE!!!!
-#TODO formatting the output messages to the user
-#TODO need to add view map functionality so the user can see the rooms they can access from their current location
 
-def show_instructions():
+
+def show_instructions(): # Function to show the instructions to the user
     print("Text-Based Zelda Adventure Game")
     print("The evil Ganondorf has taken over Hyrule and it is up to Link, the Hero of Time, to save the kingdom!")
     print("In order to move Link, you must enter the commands: 'go north', 'go south', 'go east', 'go west', in order to navigate the map")
@@ -22,6 +13,7 @@ def show_instructions():
     print("At any point you can show the instructions again by typing 'show instructions'")
     print("Type 'quit' to exit the game")
     print("Good luck!")
+    print("------------------------------------------------------------------------------------------------------------------------")
 
 def main():
     global current_room  # Declare current_room as a global variable
